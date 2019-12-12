@@ -1,12 +1,22 @@
-int main() {
-    int i = 1, sum = 0x23453464575687235235324653467;
-    while (i < 10) {
-        sum = sum + i;
-        i = i + 1;
-    }
-    print(sum);
-    return 0;
+int add(const int a, const int b) {
+    return a + b;
 }
 
+int main() {
+    int sum, i, limit;
 
+    scan(limit);
+    i = 1;
+    sum = 0;
 
+    while (i < 10) {
+        sum = sum + add(i, i * 2);
+        i = i + 1;
+    }
+
+    if (sum)
+        print(i, sum);
+    else
+        print(i);
+    return 0;
+}

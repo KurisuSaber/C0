@@ -3,7 +3,7 @@ package pers.thy.C0.tokenizer;
 import pers.thy.C0.utils.Pair;
 
 public class Token {
-    enum TokenType{
+    public enum TokenType{
         NULLTOKEN,
         DECIMAL,
         ZERO,

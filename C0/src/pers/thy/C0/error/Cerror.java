@@ -7,7 +7,13 @@ public class Cerror {
         System.out.println("Exception: "+condition);
         System.out.println("The program should not reach here.");
         System.out.println("Please check your program carefully.\n");
+        System.exit(0);
         //TODO: 优化级 throw exception
+    }
+
+    public void Error(ErrorCode errorCode,Pair<Integer,Integer> pos){
+        System.out.printf("Error: %s, in %d,%d\n",errorCode.toString(),pos.getFirst(),pos.getSecond());
+        System.exit(0);
     }
 
     public enum ErrorCode{
@@ -30,7 +36,24 @@ public class Cerror {
         ErrDuplicateDeclaration,
         ErrNotInitialized,
         ErrInvalidAssignment,
-        ErrInvalidPrint
+        ErrInvalidPrint,
+        ErrNeedTypeSpecifier,
+        ErrNeedColon,
+        ErrNeedEqual,
+        ErrNoLeftBracket,
+        ErrNoRightBracket,
+        ErrNoLeftBrace,
+        ErrNoRightBrace,
+        ErrStatement,
+        ErrNoIf,
+        ErrNoElse,
+        ErrNoWhile,
+        ErrNoReturn,
+        ErrNoScan,
+        ErrNoPrint,
+        ErrIncompleteStatement,
+        ErrNoAddtiveSign,
+        ErrNeedAssign,
     }
 
     ErrorCode err;
@@ -58,4 +81,6 @@ public class Cerror {
         this.err = err;
         this.pos = pos;
     }
+
+
 }

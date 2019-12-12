@@ -1,6 +1,8 @@
 package pers.thy.C0;
 
 import argparser.*;
+import pers.thy.C0.analyser.AST;
+import pers.thy.C0.analyser.Analyser;
 import pers.thy.C0.error.Cerror;
 import pers.thy.C0.utils.Pair;
 import pers.thy.C0.tokenizer.*;
@@ -32,14 +34,19 @@ public class Main {
 //        System.out.println ("file=" + ofile.value);
         Tokenizer tokenizer = new Tokenizer("./src/pers/thy/C0/test.txt");
         ArrayList<Pair<Optional<Token>,Optional<Cerror> > > tokens = tokenizer.AllTokens();
+        ArrayList<Token> token = new ArrayList<>();
         for(int i=0;i<tokens.size();i++) {
-            if(tokens.get(i).getSecond().isPresent()) {
-                Cerror cerror = tokens.get(i).getSecond().get();
-                System.err.printf("Line: {%d} Column: {%d} Error: {\'%s\'}\n", cerror.getPos().getFirst(), cerror.getPos().getSecond(), cerror.getCode());
-            }else if(tokens.get(i).getFirst().isPresent()) {
-                Token token = tokens.get(i).getFirst().get();
-                System.out.printf("Line: {%d} Column: {%d} Type: {\'%s\'} Value: {%s}\n", token.getStartPos().getFirst(), token.getStartPos().getSecond(), token.getType(), token.getValue());
-            }
+//            if(tokens.get(i).getSecond().isPresent()) {
+//                Cerror cerror = tokens.get(i).getSecond().get();
+//                System.err.printf("Line: {%d} Column: {%d} Error: {\'%s\'}\n", cerror.getPos().getFirst(), cerror.getPos().getSecond(), cerror.getCode());
+//            }else if(tokens.get(i).getFirst().isPresent()) {
+//                Token token = tokens.get(i).getFirst().get();
+//                System.out.printf("Line: {%d} Column: {%d} Type: {\'%s\'} Value: {%s}\n", token.getStartPos().getFirst(), token.getStartPos().getSecond(), token.getType(), token.getValue());
+//            }
+            token.add(tokens.get(i).getFirst().get());
         }
+        Analyser analyser = new Analyser(token);
+        AST c0ProgramAST = analyser.analyseC0Program();
+        System.out.println("finished");
     }
 }
