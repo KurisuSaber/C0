@@ -335,7 +335,9 @@ public class Analyser {
         ArrayList<statementAST> result = new ArrayList<>();
         while (true){
             Optional<Token> tk = nextToken();
-            if(!tk.isPresent() || !statements.contains(tk.get().getType())) {
+            if(!tk.isPresent())
+                return new statementSeqAST(result);
+            if(!statements.contains(tk.get().getType())) {
                 unreadToken();
                 return new statementSeqAST(result);
             }
