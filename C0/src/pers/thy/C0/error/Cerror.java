@@ -12,7 +12,12 @@ public class Cerror {
     }
 
     public void Error(ErrorCode errorCode,Pair<Integer,Integer> pos){
-        System.out.printf("Error: %s, in %d,%d\n",errorCode.toString(),pos.getFirst(),pos.getSecond());
+        System.out.printf("syntax error: %s, in %d,%d\n",errorCode.toString(),pos.getFirst(),pos.getSecond());
+        System.exit(0);
+    }
+
+    public void RError(ErrorCode errorCode){
+        System.out.printf("Error: %s",errorCode.toString());
         System.exit(0);
     }
 
@@ -54,6 +59,11 @@ public class Cerror {
         ErrIncompleteStatement,
         ErrNoAddtiveSign,
         ErrNeedAssign,
+        ErrIdentifierNotDefined,
+        ErrIdentifierDeclared,
+        ErrFunctionDeclared,
+        ErrFunctionNotDeclared,
+        ErrReturnTypeError,
     }
 
     ErrorCode err;

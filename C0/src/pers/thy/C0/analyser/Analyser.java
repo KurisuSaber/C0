@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Optional;
-
+//TODO: 关键字
 public class Analyser {
     private ArrayList<Token> tokens = new ArrayList<>();
     private int offset=0;
@@ -118,13 +118,13 @@ public class Analyser {
                 return result;
             }
 
-            if (!constQualifier.equals("const")) {//TODO: 遗漏级
+            if (!constQualifier.equals("const")) {
                 unreadToken();
             }
 
 
             cq = nextToken();
-            if (!cq.isPresent() || (!cq.get().getValue().equals("void") && !cq.get().getValue().equals("int"))) {
+            if (!cq.isPresent() || !cq.get().getValue().equals("int")) {//TODO: 提醒级 变量的类型不能算void
                 cerror.Error(Cerror.ErrorCode.ErrNeedTypeSpecifier, currentPos);
             }
             typeSpecifier = cq.get().getValue();
@@ -295,7 +295,7 @@ public class Analyser {
         }
 
         tk = nextToken();
-        if(!tk.isPresent() || (tk.get().getType()!=Token.TokenType.VOID && tk.get().getType()!=Token.TokenType.INT))
+        if(!tk.isPresent() || tk.get().getType()!=Token.TokenType.INT)//TODO: 非void在这里进行了判断
             cerror.Error(Cerror.ErrorCode.ErrIncompleteExpression,currentPos);
         String typeSpecifier = tk.get().getValue();
 
@@ -677,44 +677,38 @@ public class Analyser {
     //<additive-expression> ::=
     //     <multiplicative-expression>{<additive-operator><multiplicative-expression>}
     additiveExpressionAST analyseAdditiveExpression(){
-        multiplicativeExpressionAST multiplicativeExpression1 = analyseMultiplicativeExpression();
-        ArrayList<Pair<String,multiplicativeExpressionAST> > result = new ArrayList<>();
-
-        while (true){
-            Optional<Token> tk = nextToken();
-            if(!tk.isPresent())
-                return new additiveExpressionAST(multiplicativeExpression1,result);
-            if(tk.get().getType()!= Token.TokenType.PLUS_SIGN && tk.get().getType()!= Token.TokenType.MINUS_SIGN){
-                unreadToken();
-                return new additiveExpressionAST(multiplicativeExpression1,result);
-            }
-
-            String additiveOperator = tk.get().getValue();
-
-            multiplicativeExpressionAST multiplicativeExpression = analyseMultiplicativeExpression();
-
-            result.add(new Pair<>(additiveOperator,multiplicativeExpression));
+        multiplicativeExpressionAST multiplicativeExpressionL = analyseMultiplicativeExpression();
+        Optional<Token> tk = nextToken();
+        if(!tk.isPresent())
+            return new additiveExpressionAST(multiplicativeExpressionL);
+        if(tk.get().getType()!= Token.TokenType.PLUS_SIGN && tk.get().getType()!= Token.TokenType.MINUS_SIGN){
+            unreadToken();
+            return new additiveExpressionAST(multiplicativeExpressionL);
         }
+
+        String additiveOperator = tk.get().getValue();
+
+        AST multiplicativeExpressionR = analyseAdditiveExpression();
+
+        return new additiveExpressionAST(multiplicativeExpressionL,additiveOperator,multiplicativeExpressionR);
     }
     //<multiplicative-expression> ::=
     //     <unary-expression>{<multiplicative-operator><unary-expression>}
     multiplicativeExpressionAST analyseMultiplicativeExpression(){
-        unaryExpressionAST unaryExpression1 = analyseUnaryExpression();
-        ArrayList<Pair<String,unaryExpressionAST> > result = new ArrayList<>();
+        unaryExpressionAST unaryExpressionL = analyseUnaryExpression();
 
-        while (true){
-            Optional<Token> tk = nextToken();
-            if(!tk.isPresent())
-                return new multiplicativeExpressionAST(unaryExpression1,result);
-            if(tk.get().getType()!= Token.TokenType.MULTIPLY_SIGN && tk.get().getType()!= Token.TokenType.DIVIDE_SIGN){
-                unreadToken();
-                return new multiplicativeExpressionAST(unaryExpression1,result);
-            }
-
-            String multiOperator = tk.get().getValue();
-            unaryExpressionAST unaryExpression = analyseUnaryExpression();
-            result.add(new Pair<>(multiOperator,unaryExpression));
+        Optional<Token> tk = nextToken();
+        if(!tk.isPresent())
+            return new multiplicativeExpressionAST(unaryExpressionL);
+        if(tk.get().getType()!= Token.TokenType.MULTIPLY_SIGN && tk.get().getType()!= Token.TokenType.DIVIDE_SIGN){
+            unreadToken();
+            return new multiplicativeExpressionAST(unaryExpressionL);
         }
+
+        String multiOperator = tk.get().getValue();
+        AST unaryExpressionR = analyseMultiplicativeExpression();
+
+        return new multiplicativeExpressionAST(unaryExpressionL,multiOperator,unaryExpressionR);
     }
     //<unary-expression> ::=
     //    [<unary-operator>]<primary-expression>
@@ -752,7 +746,7 @@ public class Analyser {
             case LEFT_BRACKET:{
                 expressionAST expression = analyseExpression();
                 tk = nextToken();
-                if(!tk.isPresent() || tk.get().getType() == Token.TokenType.RIGHT_BRACKET)
+                if(!tk.isPresent() || tk.get().getType() != Token.TokenType.RIGHT_BRACKET)
                     cerror.Error(Cerror.ErrorCode.ErrNoRightBracket,currentPos);
 
                 return new primaryExpresiionAST(Optional.of(expression),Optional.empty(),Optional.empty(),Optional.empty());

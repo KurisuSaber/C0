@@ -3,7 +3,13 @@ package pers.thy.C0;
 import argparser.*;
 import pers.thy.C0.analyser.AST;
 import pers.thy.C0.analyser.Analyser;
+import pers.thy.C0.analyser.c0ProgramAST;
 import pers.thy.C0.error.Cerror;
+import pers.thy.C0.generator.Sgenerator;
+import pers.thy.C0.symboltable.ConstantTable;
+import pers.thy.C0.symboltable.Function;
+import pers.thy.C0.symboltable.FunctionTable;
+import pers.thy.C0.symboltable.StartCodeTable;
 import pers.thy.C0.utils.Pair;
 import pers.thy.C0.tokenizer.*;
 
@@ -46,7 +52,11 @@ public class Main {
             token.add(tokens.get(i).getFirst().get());
         }
         Analyser analyser = new Analyser(token);
-        AST c0ProgramAST = analyser.analyseC0Program();
+        AST c0Program = analyser.analyseC0Program();
+        c0ProgramAST c0ProgramAST = (c0ProgramAST)c0Program;
+        c0ProgramAST.generate();
+        Sgenerator sgenerator = new Sgenerator("./src/pers/thy/C0/output.txt");
+        sgenerator.generate();
         System.out.println("finished");
     }
 }
