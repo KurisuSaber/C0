@@ -1,0 +1,75 @@
+.constants:
+0    S  "add"
+1    S  "main"
+.start:
+.functions:
+0 0 2 1
+1 1 0 1
+F0:
+0    loada 0, 0
+1    iload    
+2    loada 0, 1
+3    iload    
+4    iadd    
+5    iret    
+F1:
+0    ipush 0  
+1    ipush 0  
+2    ipush 0  
+3    loada 0, 2
+4    iscan    
+5    istore    
+6    loada 0, 1
+7    ipush 1  
+8    ipush 2  
+9    iadd    
+10   ipush 3  
+11   imul    
+12   istore    
+13   loada 0, 0
+14   ipush 0  
+15   istore    
+16   loada 0, 1
+17   iload    
+18   ipush 10 
+19   icmp    
+20   jge 40 
+21   loada 0, 0
+22   loada 0, 0
+23   iload    
+24   loada 0, 1
+25   iload    
+26   loada 0, 1
+27   iload    
+28   ipush 2  
+29   imul    
+30   call 0  
+31   iadd    
+32   istore    
+33   loada 0, 1
+34   loada 0, 1
+35   iload    
+36   ipush 1  
+37   iadd    
+38   istore    
+39   jmp 16 
+40   loada 0, 0
+41   iload    
+42   ipush 0  
+43   icmp    
+44   je 54 
+45   loada 0, 1
+46   iload    
+47   iprint    
+48   bipush 32 
+49   cprint    
+50   loada 0, 0
+51   iload    
+52   iprint    
+53   printl    
+54   loada 0, 1
+55   iload    
+56   iprint    
+57   printl    
+58   ipush 0  
+59   iret    
