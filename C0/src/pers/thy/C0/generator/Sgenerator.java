@@ -3,7 +3,6 @@ package pers.thy.C0.generator;
 import pers.thy.C0.symboltable.*;
 
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 

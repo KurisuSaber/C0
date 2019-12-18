@@ -6,7 +6,6 @@ import pers.thy.C0.utils.Pair;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.Optional;
 
 public class Ogenerator {
     String outputFile;

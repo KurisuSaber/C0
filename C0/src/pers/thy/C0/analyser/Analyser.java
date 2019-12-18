@@ -1,15 +1,9 @@
 package pers.thy.C0.analyser;
-
-import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
 import pers.thy.C0.error.Cerror;
 import pers.thy.C0.tokenizer.Token;
 import pers.thy.C0.utils.Pair;
-import pers.thy.C0.analyser.*;
-import sun.jvm.hotspot.debugger.cdbg.Sym;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.Optional;
 //TODO: 关键字
 public class Analyser {
