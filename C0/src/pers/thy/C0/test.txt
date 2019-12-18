@@ -1,22 +1,9 @@
-int add(const int a, const int b) {
-    return a + b;
+int g0 = 42;
+
+int fun(int num) {
+    return -num;
 }
 
 int main() {
-    int sum, i, limit;
-
-    scan(limit);
-    i = (1+2)*3;
-    sum = 0;
-
-    while (i < 10) {
-        sum = sum + add(i, i * 2);
-        i = i + 1;
-    }
-
-    if (sum)
-        print(i, sum);
-    else
-        print(i);
-    return 0;
+    return fun(-123456);
 }

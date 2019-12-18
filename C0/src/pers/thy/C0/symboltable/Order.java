@@ -1,5 +1,7 @@
 package pers.thy.C0.symboltable;
 
+import pers.thy.C0.utils.Pair;
+
 import java.util.ArrayList;
 
 public class Order {
@@ -53,5 +55,12 @@ public class Order {
             if(i!=operands.size()-1) result += ", ";
         }
         return result;
+    }
+
+    public Pair<Integer,Integer> getOperandsInt(){
+        if(operands.isEmpty()) return new Pair<>(0,0);
+        if(operands.size() == 1) return new Pair<>(operands.get(0),0);
+        if(operands.size() == 2) return new Pair<>(operands.get(0),operands.get(1));
+        return new Pair<>(0,0);
     }
 }

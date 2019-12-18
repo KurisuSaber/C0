@@ -5,6 +5,7 @@ import pers.thy.C0.analyser.AST;
 import pers.thy.C0.analyser.Analyser;
 import pers.thy.C0.analyser.c0ProgramAST;
 import pers.thy.C0.error.Cerror;
+import pers.thy.C0.generator.Ogenerator;
 import pers.thy.C0.generator.Sgenerator;
 import pers.thy.C0.symboltable.ConstantTable;
 import pers.thy.C0.symboltable.Function;
@@ -57,6 +58,8 @@ public class Main {
         c0ProgramAST.generate();
         Sgenerator sgenerator = new Sgenerator("./src/pers/thy/C0/output.txt");
         sgenerator.generate();
+        Ogenerator ogenerator = new Ogenerator("./src/pers/thy/C0/out.o0");
+        ogenerator.generate();
         System.out.println("finished");
     }
 }

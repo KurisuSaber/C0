@@ -74,7 +74,7 @@ public class Sgenerator {
             FunctionTable functionTable = FunctionTable.getFunctionTable();
             for(int i=0;i<functionTable.functions.size();i++){
                 Function function = functionTable.functions.get(i);
-                bw.write("F"+i+":\n");
+                bw.write(".F"+i+":\n");
                 for(int j=0;j<function.orders.size();j++){
                     Order order = function.orders.get(j);
                     String output = String.format("%-4d %s %-3s\n",j,order.getOpcode(),order.getOperands());

@@ -489,8 +489,12 @@ public class Analyser {
         statementAST statement = analyseStatement();
 
         tk = nextToken();
-        if(!tk.isPresent() || tk.get().getType()!=Token.TokenType.ELSE)
+        if(!tk.isPresent())
             return new conditionStatementAST(condition,statement,Optional.empty());
+        if(tk.get().getType()!=Token.TokenType.ELSE){
+            unreadToken();
+            return new conditionStatementAST(condition,statement,Optional.empty());
+        }
 
         statementAST elseStatement = analyseStatement();
         return new conditionStatementAST(condition,statement,Optional.of(elseStatement));
