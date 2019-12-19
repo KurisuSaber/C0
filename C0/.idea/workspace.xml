@@ -9,8 +9,8 @@
     <list default="true" id="f1148464-6e1a-4448-a7fb-6204d7e07b2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pers/thy/C0/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pers/thy/C0/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pers/thy/C0/analyser/c0ProgramAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pers/thy/C0/analyser/c0ProgramAST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pers/thy/C0/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pers/thy/C0/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pers/thy/C0/tokenizer/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pers/thy/C0/tokenizer/Tokenizer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,10 +25,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/analyser/Analyser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="59" column="90" selection-start-line="59" selection-start-column="90" selection-end-line="59" selection-end-column="90" />
+            <state relative-caret-position="475">
+              <caret line="768" column="102" selection-start-line="768" selection-start-column="98" selection-end-line="768" selection-end-column="102" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,15 +37,53 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out.txt">
+        <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-560" />
+            <state relative-caret-position="392">
+              <caret line="59" column="90" selection-start-line="59" selection-start-column="90" selection-end-line="59" selection-end-column="90" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/test.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out.txt">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/analyser/c0ProgramAST.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="788" column="55" selection-start-line="788" selection-start-column="55" selection-end-line="788" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/tokenizer/Tokenizer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="264" column="85" selection-start-line="264" selection-start-column="85" selection-end-line="264" selection-end-column="85" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -59,10 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get</find>
-      <find>getKey</find>
-      <find>getValue</find>
-      <find>pos</find>
       <find>.equals</find>
       <find>Op</find>
       <find>void</find>
@@ -88,6 +122,11 @@
       <find>回填</find>
       <find>j</find>
       <find>cprin</find>
+      <find>NUmber</find>
+      <find>De</find>
+      <find>Dec</find>
+      <find>DECIMAL_STATE</find>
+      <find>HEX</find>
     </findStrings>
     <replaceStrings>
       <replace>getFirst</replace>
@@ -106,7 +145,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/pers/thy/C0/error/Error.java" />
         <option value="$PROJECT_DIR$/src/pers/thy/C0/utils/Pair.java" />
-        <option value="$PROJECT_DIR$/src/pers/thy/C0/tokenizer/Tokenizer.java" />
         <option value="$PROJECT_DIR$/src/pers/thy/C0/tokenizer/Token.java" />
         <option value="$PROJECT_DIR$/src/pers/thy/C0/analyser/Symbol.java" />
         <option value="$PROJECT_DIR$/src/pers/thy/C0/symboltable/Variable.java" />
@@ -124,6 +162,7 @@
         <option value="$PROJECT_DIR$/src/pers/thy/C0/generator/Sgenerator.java" />
         <option value="$PROJECT_DIR$/src/pers/thy/C0/analyser/c0ProgramAST.java" />
         <option value="$PROJECT_DIR$/src/pers/thy/C0/Main.java" />
+        <option value="$PROJECT_DIR$/src/pers/thy/C0/tokenizer/Tokenizer.java" />
         <option value="$PROJECT_DIR$/src/pers/thy/C0/test.txt" />
       </list>
     </option>
@@ -184,6 +223,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="C0" type="462c0819:PsiDirectoryNode" />
               <item name="analyser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="C0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="C0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="C0" type="462c0819:PsiDirectoryNode" />
+              <item name="analyser" type="462c0819:PsiDirectoryNode" />
+              <item name="c0ProgramAST.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="C0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="C0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="C0" type="462c0819:PsiDirectoryNode" />
+              <item name="tokenizer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -265,7 +319,7 @@
       <workItem from="1576505998915" duration="18575000" />
       <workItem from="1576651534646" duration="19245000" />
       <workItem from="1576736498203" duration="27000" />
-      <workItem from="1576742126972" duration="640000" />
+      <workItem from="1576742126972" duration="4129000" />
     </task>
     <task id="LOCAL-00001" summary="Tokenizer finished">
       <created>1575701968594</created>
@@ -316,11 +370,25 @@
       <option name="project" value="LOCAL" />
       <updated>1576724934375</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ret &amp; iret added for every function">
+      <created>1576743010727</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576743010728</updated>
+    </task>
+    <task id="LOCAL-00009" summary="arg remove test">
+      <created>1576743365077</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1576743365077</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167286000" />
+    <option name="totallyTimeSpent" value="170775000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -349,7 +417,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.13576642" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.43937823" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2919708" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Statistic" order="10" weight="0.47564766" />
@@ -377,7 +445,9 @@
     <MESSAGE value="AST uodated and generate .S file finished" />
     <MESSAGE value="generate .s and .o file finished;&#10;analyser bug fixed." />
     <MESSAGE value="argparser added" />
-    <option name="LAST_COMMIT_MESSAGE" value="argparser added" />
+    <MESSAGE value="ret &amp; iret added for every function" />
+    <MESSAGE value="arg remove test" />
+    <option name="LAST_COMMIT_MESSAGE" value="arg remove test" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -515,22 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/symboltable/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-          <folding>
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#973#974#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/symboltable/FunctionTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -578,16 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/tokenizer/Tokenizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7522">
-          <caret line="422" column="26" selection-start-line="422" selection-start-column="26" selection-end-line="422" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -621,29 +665,25 @@
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/analyser/c0ProgramAST.java">
+    <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/symboltable/Function.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        <state relative-caret-position="499">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/analyser/Analyser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="92" column="37" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="e#1045#1046#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="392">
           <caret line="59" column="90" selection-start-line="59" selection-start-column="90" selection-end-line="59" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -652,12 +692,44 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/analyser/c0ProgramAST.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-560" />
+        <state relative-caret-position="493">
+          <caret line="788" column="55" selection-start-line="788" selection-start-column="55" selection-end-line="788" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/analyser/Analyser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="768" column="102" selection-start-line="768" selection-start-column="98" selection-end-line="768" selection-end-column="102" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/tokenizer/Tokenizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="264" column="85" selection-start-line="264" selection-start-column="85" selection-end-line="264" selection-end-column="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pers/thy/C0/test.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

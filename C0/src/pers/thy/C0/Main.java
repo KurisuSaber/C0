@@ -32,8 +32,8 @@ public class Main {
         parser.addOption("-h %h #show this help message and exit",help);
         parser.addOption("-o %s #file output to specified file",outputFile);
 
-        //String[] test = new String[]{"-s","./src/pers/thy/C0/test.txt"};
-        parser.matchAllArgs(args);
+        String[] test = new String[]{"-s","./src/pers/thy/C0/test.txt"};
+        parser.matchAllArgs(test);
 
         String inputFilePath = "";
 
@@ -57,7 +57,7 @@ public class Main {
             c0ProgramAST c0ProgramAST = (c0ProgramAST)c0Program;
             c0ProgramAST.generate();
             if(sInputFile.value!=null){
-                Sgenerator sgenerator = new Sgenerator(outputFile.value == null ? "out" : outputFile.value);
+                Sgenerator sgenerator = new Sgenerator(outputFile.value == null ? "out.txt" : outputFile.value);
                 sgenerator.generate();
             }else if(oInputFile.value!=null){
                 Ogenerator ogenerator = new Ogenerator(outputFile.value == null ? "out" : outputFile.value);

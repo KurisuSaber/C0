@@ -4,6 +4,7 @@ import pers.thy.C0.utils.Pair;
 import pers.thy.C0.error.Cerror;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 
 
@@ -12,7 +13,8 @@ public class Tokenizer {
 
     Map<String,Token.TokenType> table = new HashMap<String,Token.TokenType>();
 
-
+    String maxInt = Integer.toString(Integer.MAX_VALUE);
+    String maxHex = "7fffffff";
 
     Pair<Optional<Token>,Optional<Cerror>> NextToken(){
         if(!initialized)
@@ -178,9 +180,10 @@ public class Tokenizer {
 
                 case DECIMAL_STATE:{
                     //读到了文件尾 转换为十进制数
-                    //TODO: 提醒级 10进制数处理方式 这里当做UB无事发生
                     if(!currentChar.isPresent()){
                         String tokenValue = ss.toString();
+                        if(tokenValue.length()>=10 && tokenValue.compareTo(maxInt) > 0)
+                            cerror.DieAndPrint("Number is too big!");
                         return new Pair<>(Optional.of(new Token(Token.TokenType.DECIMAL,tokenValue,pos,currentPos())),Optional.empty());
                     }
 
@@ -193,8 +196,9 @@ public class Tokenizer {
                     //回退 解析
                     else{
                         unreadLast();
-                        //TODO: 提醒级 10进制数处理方式 这里当做UB无事发生
                         String tokenValue = ss.toString();
+                        if(tokenValue.length()>=10 && tokenValue.compareTo(maxInt) > 0)
+                            cerror.DieAndPrint("Number is too big!");
                         return new Pair<>(Optional.of(new Token(Token.TokenType.DECIMAL,tokenValue,pos,currentPos())),Optional.empty());
                     }
 
@@ -244,7 +248,10 @@ public class Tokenizer {
 
                 case HEXADECIMAL_STATE:{
                     if(!currentChar.isPresent()){
-                        String tokenValue = ss.toString();
+                        String tokenValue = ss.toString().substring(2);
+                        if(tokenValue.length() >= 8 && tokenValue.compareTo(maxHex) > 0)
+                            cerror.DieAndPrint("Number is too big");
+                        tokenValue = new BigInteger(tokenValue, 16).toString(10);
                         return new Pair<>(Optional.of(new Token(Token.TokenType.HEXADECIMAL, tokenValue, pos, currentPos())), Optional.empty());
                     }
 
@@ -255,7 +262,10 @@ public class Tokenizer {
 
                     else{
                         unreadLast();
-                        String tokenValue = ss.toString();
+                        String tokenValue = ss.toString().substring(2).toLowerCase();
+                        if(tokenValue.length() >= 8 && tokenValue.compareTo(maxHex) > 0)
+                            cerror.DieAndPrint("Number is too big");
+                        tokenValue = new BigInteger(tokenValue, 16).toString(10);
                         return new Pair<>(Optional.of(new Token(Token.TokenType.HEXADECIMAL, tokenValue, pos, currentPos())), Optional.empty());
 
                     }

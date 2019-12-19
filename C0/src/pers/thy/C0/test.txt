@@ -3,5 +3,6 @@ void add(){
 }
 
 void main(){
+    int a = 0x80000000;
     print(1);
 }
