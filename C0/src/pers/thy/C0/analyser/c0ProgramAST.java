@@ -26,6 +26,24 @@ public class c0ProgramAST extends AST{
             variableDeclaration.get(i).generate();
         for(int i=0;i<functionDefinition.size();i++)
             functionDefinition.get(i).generate();
+        FunctionTable functionTable = FunctionTable.getFunctionTable();
+        for(int i=0;i<functionTable.functions.size();i++){
+            Function function = functionTable.functions.get(i);
+            if(function.orders.isEmpty() || !function.orders.get(function.orders.size()-1).getType().equals("return")){
+                Order lastOrder = new Order("ret");
+                if(function.getType().equals("void")){
+                    function.addOrder(lastOrder);
+                    continue;
+                }else{
+                    lastOrder.setOpcode("iret");
+                    Order ipush = new Order("ipush");
+                    ipush.addOperands(0);
+                    function.addOrder(ipush);
+                    function.addOrder(lastOrder);
+                    continue;
+                }
+            }
+        }
     }
 }
 
@@ -146,7 +164,7 @@ class functionDefinitionAST extends AST{
         if(FunctionTable.getFunctionTable().isDeclared(identifier))
             cerror.RError(Cerror.ErrorCode.ErrFunctionDeclared);
 
-        Function function = new Function(typeSpecifier,identifier);
+        Function function = new Function(identifier,typeSpecifier);
         FunctionTable.getFunctionTable().functions.add(function);
 
         Constant functionName = new Constant("String",identifier);
@@ -441,11 +459,13 @@ class returnStatementAST extends AST{
                 cerror.RError(Cerror.ErrorCode.ErrReturnTypeError);
             expression.get().generate();
             Order iret = new Order("iret");
+            iret.setType("return");
             FunctionTable.getFunctionTable().getCurrentFuction().addOrder(iret);
         }else{//return ;
             if(!FunctionTable.getFunctionTable().getCurrentFuction().getType().equals("void"))
                 cerror.RError(Cerror.ErrorCode.ErrReturnTypeError);
             Order ret = new Order("ret");
+            ret.setType("return");
             FunctionTable.getFunctionTable().getCurrentFuction().addOrder(ret);
         }
     }

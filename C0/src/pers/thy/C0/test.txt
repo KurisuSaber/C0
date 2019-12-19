@@ -1,9 +1,7 @@
-int g0 = 42;
+void add(){
 
-int fun(int num) {
-    return -num;
 }
 
-int main() {
-    return fun(-123456);
+void main(){
+    print(1);
 }
