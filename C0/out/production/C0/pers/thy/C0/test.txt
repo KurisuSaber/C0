@@ -1,7 +1,16 @@
-void add(){
-
+int add(){
+    int a = 1;
+    if(a){
+        if(a){
+            if(a){
+                a = 2;
+                return a;
+            }
+        }
+    }
 }
 
 void main(){
-    print(1);
+    int a = add();
+    print(a);
 }

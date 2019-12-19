@@ -487,6 +487,17 @@ public class Tokenizer {
 
     public Tokenizer(String filename) {
         try {
+            File f = new File(filename);
+            if(f.exists() && f.isFile())
+                f.delete();
+            if(f.isDirectory()) {
+                System.out.println("this is a directory, are you sure you typed the correct output file?");
+                System.exit(0);
+            }
+            if(!f.exists()){
+                System.out.println("file does not exist!");
+                System.exit(0);
+            }
             fr = new FileReader(filename);
         }catch (Exception e){
             e.printStackTrace();
