@@ -66,6 +66,10 @@ public class Ogenerator {
             File f = new File(outputFile);
             if(f.exists() && f.isFile())
                 f.delete();
+            if(f.isDirectory()) {
+                System.out.println("this is a directory, are you sure you typed the correct output file?");
+                System.exit(0);
+            }
             f.createNewFile();
             DataOutputStream out = new DataOutputStream(new FileOutputStream(outputFile, true));
             writeMagicAndVersion(out);

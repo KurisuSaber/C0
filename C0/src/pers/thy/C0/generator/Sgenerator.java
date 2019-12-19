@@ -3,6 +3,7 @@ package pers.thy.C0.generator;
 import pers.thy.C0.symboltable.*;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -15,6 +16,13 @@ public class Sgenerator {
 
     public void generate(){
         try {
+            File f = new File(outputFile);
+            if(f.exists() && f.isFile())
+                f.delete();
+            if(f.isDirectory()) {
+                System.out.println("this is a directory, are you sure you typed the correct output file?");
+                System.exit(0);
+            }
             FileWriter fr = new FileWriter(outputFile);
             BufferedWriter bw = new BufferedWriter(fr);
             writeConstant(bw);
