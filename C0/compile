@@ -1,0 +1,42 @@
+mkdir out
+cd out
+mkdir -p pers/thy/C0
+cd pers/thy/C0
+mkdir analyser
+mkdir error
+mkdir generator
+mkdir symboltable
+mkdir tokenizer
+mkdir utils
+cd ..
+cd ..
+cd ..
+cd ..
+cd ./src/
+javac -cp ".:../lib/argparser.jar:" -encoding utf8 ./pers/thy/C0/Main.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/analyser/Analyser.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/analyser/AST.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/analyser/c0ProgramAST.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/analyser/Symbol.java -d ../out/
+
+javac -encoding utf8 ./pers/thy/C0/error/Cerror.java -d ../out/
+
+javac -encoding utf8 ./pers/thy/C0/generator/Ogenerator.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/generator/Sgenerator.java -d ../out/
+
+javac -encoding utf8 ./pers/thy/C0/symboltable/Constant.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/symboltable/ConstantTable.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/symboltable/Function.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/symboltable/FunctionTable.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/symboltable/Order.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/symboltable/StartCodeTable.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/symboltable/Variable.java -d ../out/
+
+javac -encoding utf8 ./pers/thy/C0/tokenizer/Token.java -d ../out/
+javac -encoding utf8 ./pers/thy/C0/tokenizer/Tokenizer.java -d ../out/
+
+javac -encoding utf8 ./pers/thy/C0/utils/Pair.java -d ../out/
+
+
+
+

@@ -1,0 +1,4 @@
+cd ./out/
+cp ../lib/argparser.jar ./
+jar -xvf argparser.jar 
+jar -cvfm cc0.jar ../src/META-INF/MANIFEST.MF ./
