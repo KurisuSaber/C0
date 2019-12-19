@@ -24,9 +24,9 @@ public class Main {
 
         // create the parser and specify the allowed options ...
 
-        ArgParser parser = new ArgParser("java -jar C0.jar [options] input [-o file]\n" +
+        ArgParser parser = new ArgParser("java -jar cc0.jar [options] input [-o file]\n" +
                 "or \n" +
-                "  java -jar C0.jar [-h]");
+                "  java -jar cc0.jar [-h]");
         parser.addOption ("-s %s #translate input c0 code to text assembly file", sInputFile);
         parser.addOption ("-c %s #translate input c0 code to binary target file", oInputFile);
         parser.addOption("-h %h #show this help message and exit",help);
